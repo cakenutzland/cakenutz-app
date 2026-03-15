@@ -35,7 +35,7 @@ export default function CalculatorPage() {
 
   const t = {
     title: isSpanish ? "CakeNutz" : "CakeNutz",
-    subtitle: isSpanish ? "Fijación de Precios Premium" : "Premium Pricing",
+    subtitle: isSpanish ? "Calculadora de Costos" : "Cost Calculator",
     productName: isSpanish ? "Nombre de la Creación" : "Creation Name",
     productNamePlaceholder: isSpanish ? "Ej. Pastel de Bodas Royal" : "e.g. Royal Wedding Cake",
     servings: isSpanish ? "Raciones / Unidades" : "Yield / Servings",
