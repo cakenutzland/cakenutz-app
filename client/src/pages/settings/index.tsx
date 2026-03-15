@@ -1,13 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { 
   Settings as SettingsIcon, 
-  Crown,
-  Star,
-  Zap,
-  CloudLightning,
-  ChevronRight,
   Globe
 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
@@ -17,15 +11,8 @@ export default function SettingsPage() {
 
   const t = {
     title: isSpanish ? "Ajustes" : "Settings",
-    subtitle: isSpanish ? "Preferencias y Cuenta" : "Preferences & Account",
+    subtitle: isSpanish ? "Preferencias" : "Preferences",
     langLabel: isSpanish ? "Idioma" : "Language",
-    proTitle: isSpanish ? "Mejora a CakeNutz PRO" : "Upgrade to CakeNutz PRO",
-    proDesc: isSpanish ? "Desbloquea todo el potencial de tu negocio pastelero." : "Unlock the full potential of your baking business.",
-    feat1: isSpanish ? "Sincronización en la nube" : "Cloud Sync Backup",
-    feat2: isSpanish ? "Recetas ilimitadas" : "Unlimited Recipes",
-    feat3: isSpanish ? "Exportar cotizaciones a PDF" : "Export Quotes to PDF",
-    feat4: isSpanish ? "Sin anuncios" : "Ad-free experience",
-    upgradeBtn: isSpanish ? "Obtener PRO ($4.99/mes)" : "Get PRO ($4.99/mo)",
   };
 
   return (
@@ -66,41 +53,6 @@ export default function SettingsPage() {
               />
               <span className={`text-xs font-bold ${isSpanish ? 'text-[#2C1E16]' : 'text-[#A39589]'}`}>ES</span>
             </div>
-          </CardContent>
-        </Card>
-
-        {/* PRO Upsell Card */}
-        <Card className="border-0 shadow-xl bg-gradient-to-br from-[#2C1E16] to-[#1A1311] text-white rounded-[2rem] overflow-hidden relative mt-8">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#C8A97E] rounded-full mix-blend-screen filter blur-[80px] opacity-20"></div>
-          
-          <CardContent className="p-8 relative z-10">
-            <div className="inline-flex items-center gap-1.5 bg-[#C8A97E]/20 text-[#E3CDAA] px-3 py-1 rounded-full text-xs font-bold tracking-wider border border-[#C8A97E]/30 mb-6">
-              <Crown size={14} />
-              PREMIUM
-            </div>
-            
-            <h2 className="text-2xl font-serif font-bold mb-2 text-white">{t.proTitle}</h2>
-            <p className="text-[#A39589] text-sm mb-8 leading-relaxed max-w-sm">{t.proDesc}</p>
-            
-            <div className="space-y-4 mb-8">
-              {[
-                { icon: CloudLightning, text: t.feat1 },
-                { icon: Star, text: t.feat2 },
-                { icon: Zap, text: t.feat3 },
-                { icon: Crown, text: t.feat4 },
-              ].map((feat, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="bg-white/10 p-1.5 rounded-md text-[#C8A97E]">
-                    <feat.icon size={14} />
-                  </div>
-                  <span className="text-sm font-medium text-[#EBE5D9]">{feat.text}</span>
-                </div>
-              ))}
-            </div>
-            
-            <Button className="w-full h-14 rounded-xl bg-gradient-to-r from-[#C8A97E] to-[#A6885D] hover:from-[#A6885D] hover:to-[#8C7A6B] text-white font-bold text-lg shadow-[0_10px_20px_-10px_rgba(200,169,126,0.5)] border-0">
-              {t.upgradeBtn}
-            </Button>
           </CardContent>
         </Card>
 
