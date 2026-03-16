@@ -17,14 +17,14 @@ export default function SettingsPage() {
 
   return (
     <div>
-      <div className="bg-white/80 backdrop-blur-md border-b border-[#EBE5D9] sticky top-0 z-20 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
+      <div className="bg-white/80 backdrop-blur-md border-b border-[#F0E5D1] sticky top-0 z-20 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 h-18 flex items-center gap-3">
-          <div className="bg-[#F5F0E6] text-[#8C7A6B] p-2 rounded-xl border border-[#EBE5D9]">
+          <div className="bg-[#FFF6E6] text-[#666666] p-2 rounded-xl border border-[#F0E5D1]">
             <SettingsIcon size={24} />
           </div>
           <div className="flex flex-col">
-            <h1 className="text-2xl font-serif font-bold text-[#2C1E16] tracking-wide leading-none">{t.title}</h1>
-            <p className="text-[10px] font-medium text-[#8C7A6B] uppercase tracking-[0.2em] mt-1">{t.subtitle}</p>
+            <h1 className="text-2xl font-serif font-bold text-[#1A1A1A] tracking-wide leading-none">{t.title}</h1>
+            <p className="text-[10px] font-medium text-[#666666] uppercase tracking-[0.2em] mt-1">{t.subtitle}</p>
           </div>
         </div>
       </div>
@@ -35,23 +35,23 @@ export default function SettingsPage() {
         <Card className="border-0 shadow-sm bg-white rounded-2xl">
           <CardContent className="p-5 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-[#F5F0E6] rounded-lg text-[#8C7A6B]">
+              <div className="p-2 bg-[#FFF6E6] rounded-lg text-[#666666]">
                 <Globe size={18} />
               </div>
               <div>
-                <p className="font-semibold text-[#2C1E16]">{t.langLabel}</p>
-                <p className="text-xs text-[#8C7A6B]">{isSpanish ? "Español seleccionado" : "English selected"}</p>
+                <p className="font-semibold text-[#1A1A1A]">{t.langLabel}</p>
+                <p className="text-xs text-[#666666]">{isSpanish ? "Español seleccionado" : "English selected"}</p>
               </div>
             </div>
             
-            <div className="flex items-center gap-2 bg-[#FDFBF7] px-3 py-1.5 rounded-full border border-[#EBE5D9]">
-              <span className={`text-xs font-bold ${!isSpanish ? 'text-[#2C1E16]' : 'text-[#A39589]'}`}>EN</span>
+            <div className="flex items-center gap-2 bg-[#FFF6E6] px-3 py-1.5 rounded-full border border-[#F0E5D1]">
+              <span className={`text-xs font-bold ${!isSpanish ? 'text-[#1A1A1A]' : 'text-[#888888]'}`}>EN</span>
               <Switch 
                 checked={isSpanish} 
                 onCheckedChange={setIsSpanish} 
-                className="data-[state=checked]:bg-[#C8A97E] data-[state=unchecked]:bg-[#C8A97E] scale-75 origin-center -mx-1"
+                className="data-[state=checked]:bg-[#1E73BE] data-[state=unchecked]:bg-[#1E73BE] scale-75 origin-center -mx-1"
               />
-              <span className={`text-xs font-bold ${isSpanish ? 'text-[#2C1E16]' : 'text-[#A39589]'}`}>ES</span>
+              <span className={`text-xs font-bold ${isSpanish ? 'text-[#1A1A1A]' : 'text-[#888888]'}`}>ES</span>
             </div>
           </CardContent>
         </Card>

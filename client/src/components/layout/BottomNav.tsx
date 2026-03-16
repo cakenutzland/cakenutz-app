@@ -15,16 +15,16 @@ export function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-[#EBE5D9] pb-safe z-50 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)]">
+    <div className="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-[#F0E5D1] pb-safe z-50 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)]">
       <div className="max-w-3xl mx-auto flex justify-around items-center px-2 sm:px-6 h-16">
         {navItems.map((item) => {
           const isActive = location === item.href || (location === "" && item.href === "/");
           return (
-            <Link key={item.href} href={item.href} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 ${isActive ? 'text-[#C8A97E]' : 'text-[#A39589] hover:text-[#8C7A6B]'}`}>
-              <div className={`p-1.5 rounded-xl transition-all duration-200 ${isActive ? 'bg-[#C8A97E]/10' : 'bg-transparent'}`}>
+            <Link key={item.href} href={item.href} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 ${isActive ? 'text-[#1E73BE]' : 'text-[#888888] hover:text-[#666666]'}`}>
+              <div className={`p-1.5 rounded-xl transition-all duration-200 ${isActive ? 'bg-[#1E73BE]/10' : 'bg-transparent'}`}>
                 <item.icon size={20} strokeWidth={isActive ? 2.5 : 2} />
               </div>
-              <span className={`text-[10px] font-semibold tracking-wide ${isActive ? 'text-[#2C1E16]' : ''}`}>
+              <span className={`text-[10px] font-semibold tracking-wide ${isActive ? 'text-[#1A1A1A]' : ''}`}>
                 {item.label}
               </span>
             </Link>
