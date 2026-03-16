@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { 
-  ChefHat, 
   DollarSign, 
   Clock, 
   Percent, 
@@ -28,6 +27,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useAppContext } from "@/context/AppContext";
+import { BakerHat } from "@/components/ui/baker-hat";
 
 export default function CalculatorPage() {
   const [, setLocation] = useLocation();
@@ -106,8 +106,8 @@ export default function CalculatorPage() {
       <div className="bg-white/80 backdrop-blur-md border-b border-[#F0E5D1] sticky top-0 z-20 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-[#1A1A1A] text-[#1E73BE] p-2 rounded-xl shadow-sm border border-[#E5E5E5]">
-              <ChefHat size={24} strokeWidth={1.5} />
+            <div className="flex items-center justify-center p-0.5">
+              <BakerHat size={36} />
             </div>
             <div className="flex flex-col">
               <h1 className="text-2xl font-serif font-bold text-[#1A1A1A] tracking-wide leading-none">{t.title}</h1>
