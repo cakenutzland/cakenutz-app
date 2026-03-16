@@ -4,8 +4,11 @@
   "description": "Professional pricing calculator and business tools for artisan bakers.",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
+  "id": "/?source=pwa",
   "background_color": "#FFF6E6",
   "theme_color": "#FF3B30",
+  "categories": ["business", "productivity", "food"],
   "icons": [
     {
       "src": "/icon-192.png",
