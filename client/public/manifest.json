@@ -1,13 +1,15 @@
 {
-  "name": "CakeNutz Cost Calculator",
+  "name": "CakeNutz Bake Price Calculator",
   "short_name": "CakeNutz",
-  "description": "Professional pricing calculator and business tools for artisan bakers.",
+  "description": "Professional pricing calculator for bakers and pastry chefs. Calculate ingredient cost, profit margin, and optimal selling price for cakes and baked goods.",
   "start_url": "/",
+  "scope": "/",
+  "lang": "en",
   "display": "standalone",
   "orientation": "portrait",
   "id": "/?source=pwa",
-  "background_color": "#FFF6E6",
-  "theme_color": "#FF3B30",
+  "background_color": "#FFF8F0",
+  "theme_color": "#C62828",
   "categories": ["business", "productivity", "food"],
   "icons": [
     {
