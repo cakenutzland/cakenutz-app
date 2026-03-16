@@ -32,6 +32,7 @@ export default function ResultsPage() {
     totalCostResult: isSpanish ? "Costo Total" : "Total Cost",
     suggestedPriceResult: isSpanish ? "Precio Sugerido" : "Suggested Price",
     estimatedProfitResult: isSpanish ? "Beneficio Neto" : "Net Profit",
+    foodCostResult: isSpanish ? "Costo de Alimentos %" : "Food Cost %",
     perUnitResult: isSpanish ? "Precio por Unidad" : "Price Per Unit",
     breakdownTitle: isSpanish ? "Desglose de Costos" : "Cost Breakdown",
     saveRecipe: isSpanish ? "Guardar Receta" : "Save Recipe",
@@ -48,7 +49,8 @@ export default function ResultsPage() {
     pricePerUnit,
     ingPercent,
     labPercent,
-    extPercent
+    extPercent,
+    foodCostPercent
   } = useMemo(() => {
     const ingCost = currentRecipe.ingredients.reduce((sum, item) => sum + (parseFloat(item.cost) || 0), 0);
     const extCost = currentRecipe.extraCosts.reduce((sum, item) => sum + (parseFloat(item.cost) || 0), 0);
@@ -67,6 +69,8 @@ export default function ResultsPage() {
     const ingP = total > 0 ? (ingCost / total) * 100 : 0;
     const labP = total > 0 ? (labCost / total) * 100 : 0;
     const extP = total > 0 ? (extCost / total) * 100 : 0;
+    
+    const foodCostP = suggested > 0 ? (total / suggested) * 100 : 0;
 
     return {
       totalIngredientsCost: ingCost,
@@ -78,7 +82,8 @@ export default function ResultsPage() {
       pricePerUnit: perUnit,
       ingPercent: ingP,
       labPercent: labP,
-      extPercent: extP
+      extPercent: extP,
+      foodCostPercent: foodCostP
     };
   }, [currentRecipe]);
 
@@ -186,23 +191,43 @@ export default function ResultsPage() {
                 </div>
               </div>
 
-              <div className="w-full md:w-1/2 flex flex-col items-center justify-center space-y-6">
+              <div className="w-full md:w-1/2 flex flex-col items-center justify-center space-y-4">
                 <div className="bg-white/5 rounded-2xl p-5 border border-[#1E73BE]/30 w-full text-center">
                   <p className="text-[#1E73BE] text-[11px] uppercase tracking-widest font-bold mb-1.5">{t.totalCostResult}</p>
                   <p className="text-3xl font-bold text-white">${totalCost.toFixed(2)}</p>
                 </div>
 
-                <div className="text-center w-full">
-                  <p className="text-[#888888] text-xs uppercase tracking-widest font-bold mb-2">{t.estimatedProfitResult}</p>
-                  <p className={`text-4xl font-serif drop-shadow-md ${estimatedProfit >= 0 ? 'text-[#22C55E]' : 'text-[#EF4444]'}`}>
-                    {estimatedProfit >= 0 ? '+' : ''}${estimatedProfit.toFixed(2)}
-                  </p>
-                  {currentRecipe.profitMargin && parseFloat(currentRecipe.profitMargin) > 0 && (
-                    <div className="inline-flex items-center gap-2 bg-[#1A1A1A] text-[#D4C8BC] px-4 py-1.5 rounded-full text-[10px] font-bold tracking-wider border border-[#E5E5E5] mt-3">
-                      <PieChartIcon size={12} className={estimatedProfit >= 0 ? 'text-[#22C55E]' : 'text-[#EF4444]'} />
-                      {currentRecipe.profitMargin}% MARGIN
+                <div className="grid grid-cols-2 gap-3 w-full">
+                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10 text-center">
+                    <p className="text-[#888888] text-[10px] uppercase tracking-widest font-bold mb-1">{t.estimatedProfitResult}</p>
+                    <p className={`text-xl font-serif drop-shadow-md ${estimatedProfit >= 0 ? 'text-[#22C55E]' : 'text-[#EF4444]'}`}>
+                      {estimatedProfit >= 0 ? '+' : ''}${estimatedProfit.toFixed(2)}
+                    </p>
+                    {currentRecipe.profitMargin && parseFloat(currentRecipe.profitMargin) > 0 && (
+                      <div className="inline-flex items-center gap-1.5 text-[#D4C8BC] mt-1.5 text-[9px] font-bold tracking-wider">
+                        <PieChartIcon size={10} className={estimatedProfit >= 0 ? 'text-[#22C55E]' : 'text-[#EF4444]'} />
+                        {currentRecipe.profitMargin}% {isSpanish ? 'MARGEN' : 'MARGIN'}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10 text-center flex flex-col justify-center">
+                    <p className="text-[#888888] text-[10px] uppercase tracking-widest font-bold mb-1">{t.foodCostResult}</p>
+                    <div className="flex items-center justify-center gap-2">
+                      <div className={`w-2 h-2 rounded-full ${
+                        foodCostPercent <= 35 ? 'bg-[#22C55E]' : 
+                        foodCostPercent <= 50 ? 'bg-[#FFD83D]' : 
+                        'bg-[#EF4444]'
+                      }`}></div>
+                      <p className={`text-xl font-serif font-bold ${
+                        foodCostPercent <= 35 ? 'text-[#22C55E]' : 
+                        foodCostPercent <= 50 ? 'text-[#FFD83D]' : 
+                        'text-[#EF4444]'
+                      }`}>
+                        {foodCostPercent.toFixed(1)}%
+                      </p>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
               
