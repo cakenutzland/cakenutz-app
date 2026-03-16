@@ -9,8 +9,8 @@ export default function LandingPage() {
   const { isSpanish } = useAppContext();
 
   const t = {
-    title: isSpanish ? "Calcula el precio perfecto para tus pasteles." : "Calculate the perfect price for your cakes.",
-    subtitle: isSpanish ? "CakeNutz ayuda a los pasteleros a calcular costos, márgenes y precios finales en segundos." : "CakeNutz helps bakers calculate costs, margins and final prices in seconds.",
+    title: isSpanish ? "Calcula el precio perfecto para tus productos horneados." : "Calculate the perfect price for your baked goods.",
+    subtitle: isSpanish ? "Calcula al instante costos, márgenes y precios finales para tus productos de panadería." : "Instantly calculate costs, margins, and final prices for your bakery products.",
     cta: isSpanish ? "Abrir Calculadora" : "Open Calculator",
     features: [
       {
