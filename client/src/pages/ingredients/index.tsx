@@ -24,14 +24,14 @@ export default function IngredientsPage() {
   const t = {
     title: isSpanish ? "Librería de Ingredientes" : "Ingredients Library",
     subtitle: isSpanish ? "Gestiona tus costos base" : "Manage your base costs",
-    search: isSpanish ? "Buscar ingrediente..." : "Search ingredient...",
+    search: isSpanish ? "Buscar ingrediente por nombre..." : "Search ingredient by name...",
     add: isSpanish ? "Añadir Nuevo" : "Add New",
     save: isSpanish ? "Guardar" : "Save",
     cancel: isSpanish ? "Cancelar" : "Cancel",
-    name: isSpanish ? "Nombre" : "Name",
-    cost: isSpanish ? "Costo" : "Cost",
+    name: isSpanish ? "Nombre del ingrediente" : "Ingredient Name",
+    cost: isSpanish ? "Costo Total" : "Total Cost",
     unit: isSpanish ? "Unidad (ej. kg, lb, litro)" : "Unit (e.g. kg, lb, liter)",
-    empty: isSpanish ? "No se encontraron ingredientes" : "No ingredients found",
+    empty: isSpanish ? "No se encontraron ingredientes con ese nombre." : "No ingredients found with that name.",
   };
 
   const filtered = ingredientsLibrary.filter(i => i.name.toLowerCase().includes(search.toLowerCase()));

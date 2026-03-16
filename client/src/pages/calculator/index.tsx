@@ -41,7 +41,7 @@ export default function CalculatorPage() {
     servings: isSpanish ? "Raciones / Unidades" : "Yield / Servings",
     
     ingredientsTitle: isSpanish ? "Ingredientes" : "Ingredients",
-    ingredientNamePlaceholder: isSpanish ? "Ingrediente..." : "Ingredient...",
+    ingredientNamePlaceholder: isSpanish ? "Nombre del ingrediente..." : "Ingredient name...",
     costPlaceholder: isSpanish ? "Costo" : "Cost",
     addIngredient: isSpanish ? "Añadir Ingrediente" : "Add Ingredient",
     

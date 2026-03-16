@@ -21,8 +21,8 @@ export default function RecipesPage() {
   const t = {
     title: isSpanish ? "Mis Recetas" : "My Recipes",
     subtitle: isSpanish ? "Cotizaciones guardadas" : "Saved pricings",
-    search: isSpanish ? "Buscar receta..." : "Search recipe...",
-    empty: isSpanish ? "No hay recetas guardadas" : "No saved recipes yet",
+    search: isSpanish ? "Buscar receta por nombre..." : "Search recipe by name...",
+    empty: isSpanish ? "Aún no tienes recetas guardadas." : "You haven't saved any recipes yet.",
     open: isSpanish ? "Abrir" : "Open",
     duplicate: isSpanish ? "Duplicar" : "Duplicate",
     delete: isSpanish ? "Eliminar" : "Delete",
