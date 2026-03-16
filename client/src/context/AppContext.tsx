@@ -67,8 +67,28 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     { id: '3', name: 'Butter', cost: 1.50, unit: 'stick' },
     { id: '4', name: 'Eggs', cost: 0.25, unit: 'each' },
   ]);
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>(() => {
+    try {
+      const savedRecipes = localStorage.getItem('cakenutz-recipes');
+      if (savedRecipes) {
+        return JSON.parse(savedRecipes);
+      }
+    } catch (e) {
+      console.error("Failed to load recipes from localStorage", e);
+    }
+    return [];
+  });
+  
   const [currentRecipe, setCurrentRecipe] = useState<Recipe>({ ...defaultRecipe, id: Date.now().toString() });
+
+  // Save recipes to localStorage whenever they change
+  useEffect(() => {
+    try {
+      localStorage.setItem('cakenutz-recipes', JSON.stringify(recipes));
+    } catch (e) {
+      console.error("Failed to save recipes to localStorage", e);
+    }
+  }, [recipes]);
 
   const resetCurrentRecipe = () => {
     setCurrentRecipe({ ...defaultRecipe, id: Date.now().toString() });
