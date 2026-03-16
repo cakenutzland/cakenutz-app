@@ -17,7 +17,7 @@ export default function SettingsPage() {
     title: isSpanish ? "Ajustes" : "Settings",
     subtitle: isSpanish ? "Preferencias" : "Preferences",
     langLabel: isSpanish ? "Idioma" : "Language",
-    aboutLabel: isSpanish ? "Acerca de la App" : "About App",
+    aboutLabel: isSpanish ? "Acerca de" : "About",
     aboutDesc: isSpanish ? "Versión, privacidad y contacto" : "Version, privacy, and contact",
   };
 

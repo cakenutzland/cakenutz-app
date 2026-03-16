@@ -41,7 +41,7 @@ export default function AboutPage() {
     versionTitle: isSpanish ? "Versión" : "Version",
     version: "Version 1.0",
     contactTitle: isSpanish ? "Contacto" : "Contact",
-    contactText: "Email: support@cakenutz.app",
+    contactText: "CAKENUTZLAND@GMAIL.COM",
     privacyTitle: isSpanish ? "Privacidad" : "Privacy",
     privacyText: isSpanish 
       ? "Esta aplicación almacena recetas e ingredientes localmente en tu dispositivo. CakeNutz no recopila datos personales ni comparte tu información con terceros."
@@ -123,25 +123,25 @@ export default function AboutPage() {
         </div>
 
         {/* Privacy Card */}
-        <Card 
-          className="border-0 shadow-sm bg-white rounded-2xl hover:bg-[#FFF6E6]/50 transition-colors cursor-pointer border border-[#F0E5D1]"
-          onClick={() => setLocation('/privacy')}
-        >
+        <Card className="border-0 shadow-sm bg-white rounded-2xl border border-[#F0E5D1]">
           <CardHeader className="pb-3 border-b border-[#F0E5D1] bg-gradient-to-b from-[#FFF6E6]/50 to-white">
             <CardTitle className="text-lg font-serif text-[#1A1A1A] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ShieldCheck size={18} className="text-[#22C55E]" />
                 {t.privacyTitle}
               </div>
-              <ChevronRight size={20} className="text-[#888888]" />
             </CardTitle>
           </CardHeader>
           <CardContent className="p-5">
-            <p className="text-sm text-[#666666] leading-relaxed">
+            <p className="text-sm text-[#666666] leading-relaxed mb-4">
               {t.privacyText}
             </p>
-            <Button variant="link" className="px-0 mt-2 text-[#1E73BE] h-auto font-medium">
-              {isSpanish ? "Ver Política Completa" : "Read Full Policy"}
+            <Button 
+              variant="outline" 
+              className="w-full border-[#1E73BE] text-[#1E73BE] hover:bg-[#1E73BE]/10"
+              onClick={() => setLocation('/privacy')}
+            >
+              {isSpanish ? "Política de Privacidad" : "Privacy Policy"}
             </Button>
           </CardContent>
         </Card>
