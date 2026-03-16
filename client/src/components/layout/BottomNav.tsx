@@ -20,15 +20,13 @@ export function BottomNav() {
         {navItems.map((item) => {
           const isActive = location === item.href || (location === "" && item.href === "/");
           return (
-            <Link key={item.href} href={item.href}>
-              <a className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 ${isActive ? 'text-[#C8A97E]' : 'text-[#A39589] hover:text-[#8C7A6B]'}`}>
-                <div className={`p-1.5 rounded-xl transition-all duration-200 ${isActive ? 'bg-[#C8A97E]/10' : 'bg-transparent'}`}>
-                  <item.icon size={20} strokeWidth={isActive ? 2.5 : 2} />
-                </div>
-                <span className={`text-[10px] font-semibold tracking-wide ${isActive ? 'text-[#2C1E16]' : ''}`}>
-                  {item.label}
-                </span>
-              </a>
+            <Link key={item.href} href={item.href} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 ${isActive ? 'text-[#C8A97E]' : 'text-[#A39589] hover:text-[#8C7A6B]'}`}>
+              <div className={`p-1.5 rounded-xl transition-all duration-200 ${isActive ? 'bg-[#C8A97E]/10' : 'bg-transparent'}`}>
+                <item.icon size={20} strokeWidth={isActive ? 2.5 : 2} />
+              </div>
+              <span className={`text-[10px] font-semibold tracking-wide ${isActive ? 'text-[#2C1E16]' : ''}`}>
+                {item.label}
+              </span>
             </Link>
           );
         })}
