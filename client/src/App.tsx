@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppProvider } from "@/context/AppContext";
 import { AppLayout } from "@/components/layout/AppLayout";
 
+import LandingPage from "@/pages/landing/index";
 import CalculatorPage from "@/pages/calculator/index";
 import ResultsPage from "@/pages/results/index";
 import IngredientsPage from "@/pages/ingredients/index";
@@ -18,7 +19,8 @@ function Router() {
   return (
     <AppLayout>
       <Switch>
-        <Route path="/" component={CalculatorPage}/>
+        <Route path="/" component={LandingPage}/>
+        <Route path="/calculator" component={CalculatorPage}/>
         <Route path="/results" component={ResultsPage}/>
         <Route path="/ingredients" component={IngredientsPage}/>
         <Route path="/recipes" component={RecipesPage}/>

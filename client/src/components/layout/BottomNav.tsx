@@ -7,7 +7,7 @@ export function BottomNav() {
   const { isSpanish } = useAppContext();
 
   const navItems = [
-    { href: "/", icon: Calculator, label: isSpanish ? "Calcular" : "Calc" },
+    { href: "/calculator", icon: Calculator, label: isSpanish ? "Calcular" : "Calc" },
     { href: "/results", icon: PieChart, label: isSpanish ? "Resultados" : "Results" },
     { href: "/ingredients", icon: Library, label: isSpanish ? "Ingredientes" : "Ingredients" },
     { href: "/recipes", icon: BookOpen, label: isSpanish ? "Recetas" : "Recipes" },
@@ -18,7 +18,7 @@ export function BottomNav() {
     <div className="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-[#F0E5D1] pb-safe z-50 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)]">
       <div className="max-w-3xl mx-auto flex justify-around items-center px-2 sm:px-6 h-16">
         {navItems.map((item) => {
-          const isActive = location === item.href || (location === "" && item.href === "/");
+          const isActive = location === item.href;
           return (
             <Link key={item.href} href={item.href} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 ${isActive ? 'text-[#1E73BE]' : 'text-[#888888] hover:text-[#666666]'}`}>
               <div className={`p-1.5 rounded-xl transition-all duration-200 ${isActive ? 'bg-[#1E73BE]/10' : 'bg-transparent'}`}>
