@@ -1,18 +1,24 @@
+import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { 
   Settings as SettingsIcon, 
-  Globe
+  Globe,
+  Info,
+  ChevronRight
 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 
 export default function SettingsPage() {
+  const [, setLocation] = useLocation();
   const { isSpanish, setIsSpanish } = useAppContext();
 
   const t = {
     title: isSpanish ? "Ajustes" : "Settings",
     subtitle: isSpanish ? "Preferencias" : "Preferences",
     langLabel: isSpanish ? "Idioma" : "Language",
+    aboutLabel: isSpanish ? "Acerca de la App" : "About App",
+    aboutDesc: isSpanish ? "Versión, privacidad y contacto" : "Version, privacy, and contact",
   };
 
   return (
@@ -29,7 +35,7 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4">
+      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-4 mt-4">
         
         {/* Language Toggle */}
         <Card className="border-0 shadow-sm bg-white rounded-2xl">
@@ -53,6 +59,25 @@ export default function SettingsPage() {
               />
               <span className={`text-xs font-bold ${isSpanish ? 'text-[#1A1A1A]' : 'text-[#888888]'}`}>ES</span>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* About App */}
+        <Card 
+          className="border-0 shadow-sm bg-white rounded-2xl hover:bg-[#FFF6E6]/50 transition-colors cursor-pointer" 
+          onClick={() => setLocation('/about')}
+        >
+          <CardContent className="p-5 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-[#FFF6E6] rounded-lg text-[#666666]">
+                <Info size={18} />
+              </div>
+              <div>
+                <p className="font-semibold text-[#1A1A1A]">{t.aboutLabel}</p>
+                <p className="text-xs text-[#666666]">{t.aboutDesc}</p>
+              </div>
+            </div>
+            <ChevronRight size={20} className="text-[#888888]" />
           </CardContent>
         </Card>
 

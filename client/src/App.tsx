@@ -13,6 +13,7 @@ import ResultsPage from "@/pages/results/index";
 import IngredientsPage from "@/pages/ingredients/index";
 import RecipesPage from "@/pages/recipes/index";
 import SettingsPage from "@/pages/settings/index";
+import AboutPage from "@/pages/about/index";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -25,6 +26,7 @@ function Router() {
         <Route path="/ingredients" component={IngredientsPage}/>
         <Route path="/recipes" component={RecipesPage}/>
         <Route path="/settings" component={SettingsPage}/>
+        <Route path="/about" component={AboutPage}/>
         <Route component={NotFound} />
       </Switch>
     </AppLayout>
