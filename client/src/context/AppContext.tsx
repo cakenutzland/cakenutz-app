@@ -61,12 +61,35 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [isSpanish, setIsSpanish] = useState(false);
-  const [ingredientsLibrary, setIngredientsLibrary] = useState<Ingredient[]>([
+  
+  const defaultIngredients: Ingredient[] = [
     { id: '1', name: 'Flour (All Purpose)', cost: 0.15, unit: 'cup' },
     { id: '2', name: 'Sugar', cost: 0.20, unit: 'cup' },
     { id: '3', name: 'Butter', cost: 1.50, unit: 'stick' },
     { id: '4', name: 'Eggs', cost: 0.25, unit: 'each' },
-  ]);
+  ];
+
+  const [ingredientsLibrary, setIngredientsLibrary] = useState<Ingredient[]>(() => {
+    try {
+      const saved = localStorage.getItem('cakenutz-ingredients');
+      if (saved) {
+        return JSON.parse(saved);
+      }
+    } catch (e) {
+      console.error("Failed to load ingredients from localStorage", e);
+    }
+    return defaultIngredients;
+  });
+
+  // Save ingredients to localStorage whenever they change
+  useEffect(() => {
+    try {
+      localStorage.setItem('cakenutz-ingredients', JSON.stringify(ingredientsLibrary));
+    } catch (e) {
+      console.error("Failed to save ingredients to localStorage", e);
+    }
+  }, [ingredientsLibrary]);
+
   const [recipes, setRecipes] = useState<Recipe[]>(() => {
     try {
       const savedRecipes = localStorage.getItem('cakenutz-recipes');
