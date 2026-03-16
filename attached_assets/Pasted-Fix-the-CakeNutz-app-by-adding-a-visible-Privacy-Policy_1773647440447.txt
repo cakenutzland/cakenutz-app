@@ -1,0 +1,45 @@
+Fix the CakeNutz app by adding a visible Privacy Policy page and linking it correctly from the About page.
+
+Requirements:
+1. Create a separate page called "Privacy Policy".
+2. Ensure the "Privacy Policy" button/link on the About page opens this page correctly.
+3. The Privacy Policy page must be visible and scrollable on mobile.
+4. Use the same CakeNutz app style and colors.
+5. Do not change any calculator logic, recipe storage, ingredient storage, service worker, or offline behavior.
+
+Use this exact text:
+
+Privacy Policy for CakeNutz Bake Price Calculator
+
+Effective date: [add date]
+
+CakeNutz Bake Price Calculator respects your privacy.
+
+1. Information We Collect
+CakeNutz does not require users to create an account and does not collect personal information such as name, email address, phone number, or payment information.
+
+2. Local Storage
+Recipes, ingredients, and calculation data entered into the app are stored locally on the user’s device using local storage. This information remains on your device unless you delete it.
+
+3. Data Sharing
+CakeNutz does not sell, share, or transfer your personal data to third parties.
+
+4. Internet Access
+The app may use internet access only to load app files, updates, and installed web app functionality. Core recipe and calculation data are stored locally on your device.
+
+5. Children’s Privacy
+CakeNutz is not directed toward children under 13 and does not knowingly collect personal information from children.
+
+6. Data Security
+Because your recipe and ingredient data are stored locally on your device, you are responsible for managing and protecting access to your device.
+
+7. Changes to This Privacy Policy
+This privacy policy may be updated from time to time. Any updates will be reflected by changing the effective date above.
+
+8. Contact
+If you have any questions about this Privacy Policy, you may contact us at:
+
+CAKENUTZLAND@GMAIL.COM
+
+Goal:
+The Privacy Policy page must open correctly from About and be readable inside the app.
