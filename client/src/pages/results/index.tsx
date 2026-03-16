@@ -10,7 +10,8 @@ import {
   Clock,
   PackagePlus,
   Save,
-  CheckCircle2
+  CheckCircle2,
+  Copy
 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { useToast } from "@/hooks/use-toast";
@@ -154,10 +155,32 @@ export default function ResultsPage() {
                     ${suggestedPrice.toFixed(2)}
                   </p>
                   
-                  {parseFloat(currentRecipe.servings) > 1 && (
+                  <div className="flex justify-center mt-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="bg-transparent border-white/20 text-[#C8A97E] hover:bg-white/10 hover:text-white rounded-full h-7 px-3 text-xs"
+                      onClick={() => {
+                        navigator.clipboard.writeText(suggestedPrice.toFixed(2));
+                        toast({
+                          title: isSpanish ? "Precio copiado" : "Price copied",
+                          description: isSpanish ? "El precio ha sido copiado al portapapeles." : "The price has been copied to your clipboard.",
+                          duration: 2000,
+                        });
+                      }}
+                    >
+                      <Copy className="w-3 h-3 mr-1" />
+                      {isSpanish ? "Copiar" : "Copy"}
+                    </Button>
+                  </div>
+                  
+                  {parseFloat(currentRecipe.servings) > 0 && (
                     <div className="mt-6 pt-4 border-t border-white/10 flex flex-col justify-center items-center">
                       <span className="text-xs text-[#A39589] uppercase tracking-wider mb-1">{t.perUnitResult}</span>
-                      <span className="text-xl font-bold text-white">${pricePerUnit.toFixed(2)}</span>
+                      <span className="text-2xl font-bold text-white">${pricePerUnit.toFixed(2)}</span>
+                      <span className="text-[10px] text-[#A39589] mt-1 opacity-80">
+                        ({currentRecipe.servings} {t.servings.toLowerCase()})
+                      </span>
                     </div>
                   )}
                 </div>
@@ -203,39 +226,48 @@ export default function ResultsPage() {
             </div>
 
             <div className="grid grid-cols-3 gap-3">
-              <Card className="border-[#EBE5D9] shadow-sm bg-white rounded-2xl">
+              <Card className="border-[#EBE5D9] shadow-md hover:shadow-lg transition-shadow duration-300 bg-white rounded-2xl">
                 <CardContent className="p-4 flex flex-col items-center text-center">
-                  <div className="w-3 h-3 rounded-full bg-[#C8A97E] mb-2"></div>
-                  <p className="text-[10px] font-bold text-[#8C7A6B] uppercase tracking-wider mb-1 flex items-center gap-1">
-                    <ShoppingBag size={10} />
+                  <div className="w-8 h-8 rounded-full bg-[#C8A97E]/10 flex items-center justify-center mb-3">
+                    <ShoppingBag size={14} className="text-[#C8A97E]" />
+                  </div>
+                  <p className="text-[10px] font-bold text-[#8C7A6B] uppercase tracking-wider mb-1">
                     {t.totalIngredientsResult}
                   </p>
-                  <p className="text-lg font-semibold text-[#2C1E16]">${totalIngredientsCost.toFixed(2)}</p>
-                  <p className="text-[10px] text-[#A39589] mt-1">{ingPercent.toFixed(1)}%</p>
+                  <p className="text-xl font-semibold text-[#2C1E16]">${totalIngredientsCost.toFixed(2)}</p>
+                  <div className="mt-2 bg-[#F0EBE1] text-[#8C7A6B] px-2 py-0.5 rounded-full text-[10px] font-bold">
+                    {ingPercent.toFixed(1)}%
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-[#EBE5D9] shadow-sm bg-white rounded-2xl">
+              <Card className="border-[#EBE5D9] shadow-md hover:shadow-lg transition-shadow duration-300 bg-white rounded-2xl">
                 <CardContent className="p-4 flex flex-col items-center text-center">
-                  <div className="w-3 h-3 rounded-full bg-[#8C7A6B] mb-2"></div>
-                  <p className="text-[10px] font-bold text-[#8C7A6B] uppercase tracking-wider mb-1 flex items-center gap-1">
-                    <Clock size={10} />
+                  <div className="w-8 h-8 rounded-full bg-[#8C7A6B]/10 flex items-center justify-center mb-3">
+                    <Clock size={14} className="text-[#8C7A6B]" />
+                  </div>
+                  <p className="text-[10px] font-bold text-[#8C7A6B] uppercase tracking-wider mb-1">
                     {t.laborCostResult}
                   </p>
-                  <p className="text-lg font-semibold text-[#2C1E16]">${laborCost.toFixed(2)}</p>
-                  <p className="text-[10px] text-[#A39589] mt-1">{labPercent.toFixed(1)}%</p>
+                  <p className="text-xl font-semibold text-[#2C1E16]">${laborCost.toFixed(2)}</p>
+                  <div className="mt-2 bg-[#F0EBE1] text-[#8C7A6B] px-2 py-0.5 rounded-full text-[10px] font-bold">
+                    {labPercent.toFixed(1)}%
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-[#EBE5D9] shadow-sm bg-white rounded-2xl">
+              <Card className="border-[#EBE5D9] shadow-md hover:shadow-lg transition-shadow duration-300 bg-white rounded-2xl">
                 <CardContent className="p-4 flex flex-col items-center text-center">
-                  <div className="w-3 h-3 rounded-full bg-[#4A3B32] mb-2"></div>
-                  <p className="text-[10px] font-bold text-[#8C7A6B] uppercase tracking-wider mb-1 flex items-center gap-1">
-                    <PackagePlus size={10} />
+                  <div className="w-8 h-8 rounded-full bg-[#4A3B32]/10 flex items-center justify-center mb-3">
+                    <PackagePlus size={14} className="text-[#4A3B32]" />
+                  </div>
+                  <p className="text-[10px] font-bold text-[#8C7A6B] uppercase tracking-wider mb-1">
                     {t.totalExtrasResult}
                   </p>
-                  <p className="text-lg font-semibold text-[#2C1E16]">${totalExtrasCost.toFixed(2)}</p>
-                  <p className="text-[10px] text-[#A39589] mt-1">{extPercent.toFixed(1)}%</p>
+                  <p className="text-xl font-semibold text-[#2C1E16]">${totalExtrasCost.toFixed(2)}</p>
+                  <div className="mt-2 bg-[#F0EBE1] text-[#8C7A6B] px-2 py-0.5 rounded-full text-[10px] font-bold">
+                    {extPercent.toFixed(1)}%
+                  </div>
                 </CardContent>
               </Card>
             </div>
