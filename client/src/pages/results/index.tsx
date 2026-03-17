@@ -11,7 +11,8 @@ import {
   PackagePlus,
   Save,
   CheckCircle2,
-  Copy
+  Copy,
+  Share
 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { useToast } from "@/hooks/use-toast";
@@ -37,6 +38,7 @@ export default function ResultsPage() {
     breakdownTitle: isSpanish ? "Desglose de Costos" : "Cost Breakdown",
     saveRecipe: isSpanish ? "Guardar Receta" : "Save Recipe",
     recipeSaved: isSpanish ? "¡Receta Guardada!" : "Recipe Saved!",
+    shareApp: isSpanish ? "Comparte CakeNutz con otros pasteleros" : "Share CakeNutz with other bakers",
   };
 
   const { 
@@ -110,6 +112,29 @@ export default function ResultsPage() {
       description: currentRecipe.name,
       className: "bg-[#1A1A1A] text-white border-[#1E73BE]",
     });
+  };
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'CakeNutz Bake Price Calculator',
+          text: t.shareApp,
+          url: window.location.origin,
+        });
+      } catch (err) {
+        // User cancelled or share failed silently
+        console.log("Share failed:", err);
+      }
+    } else {
+      // Fallback: Copy to clipboard if native share isn't supported
+      navigator.clipboard.writeText(window.location.origin);
+      toast({
+        title: isSpanish ? "Enlace copiado" : "Link copied",
+        description: isSpanish ? "Enlace copiado al portapapeles" : "Link copied to clipboard",
+        duration: 2000,
+      });
+    }
   };
 
   return (
@@ -306,6 +331,16 @@ export default function ResultsPage() {
           <Save className="mr-2 text-[#1E73BE]" size={20} />
           {t.saveRecipe}
         </Button>
+
+        <div className="flex justify-center pt-2 pb-6">
+          <button 
+            onClick={handleShare}
+            className="flex items-center gap-2 text-sm text-[#888888] hover:text-[#1E73BE] transition-colors"
+          >
+            <Share size={14} />
+            <span>{t.shareApp}</span>
+          </button>
+        </div>
       </div>
     </div>
   );
