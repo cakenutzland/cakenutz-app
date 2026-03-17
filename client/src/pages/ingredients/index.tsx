@@ -31,7 +31,9 @@ export default function IngredientsPage() {
     name: isSpanish ? "Nombre del ingrediente" : "Ingredient Name",
     cost: isSpanish ? "Costo Total" : "Total Cost",
     unit: isSpanish ? "Unidad (ej. kg, lb, litro)" : "Unit (e.g. kg, lb, liter)",
-    empty: isSpanish ? "No se encontraron ingredientes con ese nombre." : "No ingredients found with that name.",
+    empty: ingredientsLibrary.length === 0 
+      ? (isSpanish ? "Tu biblioteca de ingredientes está vacía." : "Your ingredient library is empty.")
+      : (isSpanish ? "No se encontraron ingredientes con ese nombre." : "No ingredients found with that name."),
   };
 
   const filtered = ingredientsLibrary.filter(i => i.name.toLowerCase().includes(search.toLowerCase()));
@@ -74,7 +76,7 @@ export default function IngredientsPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4 pb-20">
+      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4">
         
         {isAdding && (
           <Card className="border-[#1E73BE] shadow-lg bg-[#FFFFFF] rounded-3xl overflow-hidden animate-in slide-in-from-top-4 duration-300">
@@ -128,7 +130,7 @@ export default function IngredientsPage() {
                     <h3 className="font-serif text-lg font-bold text-[#1A1A1A]">{ing.name}</h3>
                     <p className="text-sm font-medium text-[#666666] mt-1">${ing.cost.toFixed(2)} / {ing.unit}</p>
                   </div>
-                  <Button variant="ghost" size="icon" onClick={() => removeIng(ing.id)} className="text-[#D4C8BC] hover:text-red-500 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Button variant="ghost" size="icon" onClick={() => removeIng(ing.id)} className="text-[#D4C8BC] hover:text-red-500 sm:opacity-0 group-hover:opacity-100 transition-opacity">
                     <Trash2 size={18} />
                   </Button>
                 </CardContent>

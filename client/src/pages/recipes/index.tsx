@@ -60,7 +60,7 @@ export default function RecipesPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4 pb-20">
+      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4">
         
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#888888] h-5 w-5" />
@@ -103,10 +103,10 @@ export default function RecipesPage() {
                       <Play size={18} className="mr-2 text-[#FFD83D]" />
                       {t.open}
                     </Button>
-                    <Button variant="outline" size="icon" onClick={() => handleDuplicate(recipe)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-[#1A1A1A] hover:bg-[#F0E5D1]/50 h-12 w-12 transition-colors">
+                    <Button variant="outline" size="icon" onClick={() => handleDuplicate(recipe)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-[#1A1A1A] hover:bg-[#F0E5D1]/50 h-12 w-12 transition-colors shrink-0">
                       <Copy size={18} />
                     </Button>
-                    <Button variant="outline" size="icon" onClick={() => handleDelete(recipe.id)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-red-500 hover:bg-red-50 hover:border-red-200 h-12 w-12 transition-colors">
+                    <Button variant="outline" size="icon" onClick={() => handleDelete(recipe.id)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-red-500 hover:bg-red-50 hover:border-red-200 h-12 w-12 transition-colors shrink-0">
                       <Trash2 size={18} />
                     </Button>
                   </div>

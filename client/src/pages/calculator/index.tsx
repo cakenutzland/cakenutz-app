@@ -80,7 +80,7 @@ export default function CalculatorPage() {
     calculateBtn: isSpanish ? "Calcular Precio Final" : "Calculate Final Price",
     reset: isSpanish ? "Nuevo Cálculo" : "New Calculation",
     resetConfirmTitle: isSpanish ? "¿Estás seguro?" : "Are you sure?",
-    resetConfirmText: isSpanish ? "Esto borrará todos los datos de la calculadora." : "This will clear all data.",
+    resetConfirmText: isSpanish ? "Esto borrará todos los datos de la calculadora. ¿Proceder?" : "This will clear all data. Proceed?",
     resetCancel: isSpanish ? "Cancelar" : "Cancel",
   };
 
@@ -121,7 +121,7 @@ export default function CalculatorPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center -ml-2">
-              <BakerHat size={64} />
+              <BakerHat size={56} />
             </div>
             <div className="flex flex-col -ml-2">
               <h1 className="text-2xl font-serif font-bold text-[#1A1A1A] tracking-wide leading-none">{t.title}</h1>
@@ -203,7 +203,7 @@ export default function CalculatorPage() {
                     size="icon" 
                     onClick={() => removeIngredient(item.id)}
                     disabled={currentRecipe.ingredients.length === 1}
-                    className="h-10 w-10 shrink-0 rounded-full text-[#D4C8BC] hover:text-red-500 hover:bg-red-50 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity disabled:opacity-0"
+                    className="h-10 w-10 shrink-0 rounded-full text-[#D4C8BC] hover:text-red-500 hover:bg-red-50 sm:opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0"
                   >
                     <Trash2 size={16} />
                   </Button>
@@ -380,7 +380,7 @@ export default function CalculatorPage() {
                     size="icon" 
                     onClick={() => removeExtra(item.id)}
                     disabled={currentRecipe.extraCosts.length === 1 && !item.name && !item.cost}
-                    className="h-10 w-10 shrink-0 rounded-full text-[#D4C8BC] hover:text-red-500 hover:bg-red-50 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity disabled:opacity-0"
+                    className="h-10 w-10 shrink-0 rounded-full text-[#D4C8BC] hover:text-red-500 hover:bg-red-50 sm:opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0"
                   >
                     <Trash2 size={16} />
                   </Button>

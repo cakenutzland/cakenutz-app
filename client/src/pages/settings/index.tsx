@@ -125,22 +125,22 @@ export default function SettingsPage() {
         </div>
 
         {/* Developer Signature */}
-        <div className="mt-8 pt-8 border-t border-[#F0E5D1]/50 pb-20 flex flex-col items-center justify-center text-center animate-in fade-in duration-500">
-          <div className="w-16 h-16 rounded-2xl overflow-hidden mb-4 shadow-sm border border-[#F0E5D1] bg-[#1A1A1A]">
+        <div className="mt-8 pt-8 border-t border-[#F0E5D1]/50 pb-8 flex flex-col items-center justify-center text-center animate-in fade-in duration-500">
+          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-[1.5rem] overflow-hidden mb-5 shadow-lg border-4 border-white bg-[#1A1A1A] transition-transform hover:scale-105 duration-300 ring-1 ring-[#F0E5D1]">
             <img src={logo} alt="NutzLabs Logo" className="w-full h-full object-cover" />
           </div>
-          <p className="text-sm font-semibold text-[#1A1A1A] tracking-wide">{t.devTitle}</p>
-          <p className="text-xs text-[#666666] mt-1">{t.devName}</p>
-          <a href={`mailto:${t.devEmail}`} className="text-xs text-[#1E73BE] hover:text-[#1A1A1A] transition-colors mb-5 inline-block font-medium">
+          <p className="text-[10px] font-bold text-[#888888] tracking-widest uppercase mb-1">{t.devTitle}</p>
+          <p className="text-3xl font-serif font-black text-[#1A1A1A] mb-1.5 drop-shadow-sm">{t.devName}</p>
+          <a href={`mailto:${t.devEmail}`} className="text-sm text-[#1E73BE] hover:text-[#1A1A1A] transition-colors mb-6 inline-block font-medium bg-[#1E73BE]/5 hover:bg-[#1E73BE]/10 px-4 py-1.5 rounded-full">
             {t.devEmail}
           </a>
           
           <Button 
             variant="outline" 
             onClick={() => window.location.href = `mailto:${t.devEmail}`}
-            className="rounded-full border-[#D4C8BC] text-[#4A4A4A] hover:bg-[#FFF6E6] hover:text-[#1A1A1A] hover:border-[#E6DCCF] h-10 px-6 text-xs font-semibold shadow-sm hover:shadow transition-all"
+            className="rounded-full border-2 border-[#E6DCCF] text-[#2C2C2C] hover:bg-[#FFF6E6] hover:text-[#1A1A1A] hover:border-[#E6DCCF] h-12 px-8 text-sm font-bold shadow-sm hover:shadow-md transition-all group"
           >
-            <Mail size={14} className="mr-2" />
+            <Mail size={16} className="mr-2 text-[#888888] group-hover:text-[#1E73BE] transition-colors" />
             {t.contactBtn}
           </Button>
         </div>
