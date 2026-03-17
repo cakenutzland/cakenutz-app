@@ -131,7 +131,9 @@ export default function SettingsPage() {
           </div>
           <p className="text-sm font-semibold text-[#1A1A1A] tracking-wide">{t.devTitle}</p>
           <p className="text-xs text-[#666666] mt-1">{t.devName}</p>
-          <p className="text-xs text-[#888888] mb-5">{t.devEmail}</p>
+          <a href={`mailto:${t.devEmail}`} className="text-xs text-[#1E73BE] hover:text-[#1A1A1A] transition-colors mb-5 inline-block font-medium">
+            {t.devEmail}
+          </a>
           
           <Button 
             variant="outline" 
