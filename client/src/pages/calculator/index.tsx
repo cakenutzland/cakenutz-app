@@ -415,9 +415,9 @@ export default function CalculatorPage() {
             <AlertDialogTrigger asChild>
               <Button 
                 variant="outline"
-                className="w-full h-14 rounded-[2rem] border-2 border-[#F0E5D1] bg-[#FAFAFA] hover:bg-[#FFF6E6] text-[#666666] hover:text-[#1A1A1A] font-medium text-lg shadow-sm transition-all"
+                className="w-full h-14 rounded-[2rem] border-2 border-[#D4C8BC] bg-white hover:bg-[#FFF6E6] text-[#1A1A1A] font-bold text-lg shadow-sm hover:shadow-md transition-all group"
               >
-                <RotateCcw className="mr-2" size={20} />
+                <RotateCcw className="mr-2 text-[#666666] group-hover:text-[#1E73BE] transition-colors" size={20} />
                 {t.reset}
               </Button>
             </AlertDialogTrigger>
