@@ -125,13 +125,13 @@ export default function SettingsPage() {
         </div>
 
         {/* Developer Signature */}
-        <div className="mt-8 pt-8 border-t border-[#F0E5D1]/50 pb-8 flex flex-col items-center justify-center text-center animate-in fade-in duration-500">
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-[1.5rem] overflow-hidden mb-5 shadow-lg border-4 border-white bg-[#1A1A1A] transition-transform hover:scale-105 duration-300 ring-1 ring-[#F0E5D1]">
+        <div className="mt-16 pt-12 border-t border-[#F0E5D1]/50 pb-12 flex flex-col items-center justify-center text-center animate-in fade-in duration-500">
+          <div className="w-52 h-52 sm:w-60 sm:h-60 rounded-[2.5rem] overflow-hidden mb-10 shadow-2xl border-4 border-white bg-[#1A1A1A] transition-transform hover:scale-105 duration-300 ring-1 ring-[#F0E5D1]/80 opacity-[0.97]">
             <img src={logo} alt="NutzLabs Logo" className="w-full h-full object-cover" />
           </div>
-          <p className="text-[10px] font-bold text-[#888888] tracking-widest uppercase mb-1">{t.devTitle}</p>
-          <p className="text-3xl font-serif font-black text-[#1A1A1A] mb-1.5 drop-shadow-sm">{t.devName}</p>
-          <a href={`mailto:${t.devEmail}`} className="text-sm text-[#1E73BE] hover:text-[#1A1A1A] transition-colors mb-6 inline-block font-medium bg-[#1E73BE]/5 hover:bg-[#1E73BE]/10 px-4 py-1.5 rounded-full">
+          <p className="text-[11px] font-bold text-[#888888] tracking-widest uppercase mb-1.5">{t.devTitle}</p>
+          <p className="text-3xl font-serif font-black text-[#1A1A1A] mb-2 drop-shadow-sm">{t.devName}</p>
+          <a href={`mailto:${t.devEmail}`} className="text-sm text-[#1E73BE] hover:text-[#1A1A1A] transition-colors mb-10 inline-block font-medium bg-[#1E73BE]/5 hover:bg-[#1E73BE]/10 px-5 py-2 rounded-full">
             {t.devEmail}
           </a>
           
