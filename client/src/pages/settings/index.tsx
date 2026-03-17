@@ -5,13 +5,16 @@ import {
   Settings as SettingsIcon, 
   Globe,
   Info,
-  ChevronRight
+  ChevronRight,
+  Share
 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
+import { useToast } from "@/hooks/use-toast";
 
 export default function SettingsPage() {
   const [, setLocation] = useLocation();
   const { isSpanish, setIsSpanish } = useAppContext();
+  const { toast } = useToast();
 
   const t = {
     title: isSpanish ? "Ajustes" : "Settings",
@@ -19,6 +22,28 @@ export default function SettingsPage() {
     langLabel: isSpanish ? "Idioma" : "Language",
     aboutLabel: isSpanish ? "Acerca de" : "About",
     aboutDesc: isSpanish ? "Versión, privacidad y contacto" : "Version, privacy, and contact",
+    shareApp: isSpanish ? "Comparte CakeNutz con otros pasteleros" : "Share CakeNutz with other bakers",
+  };
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'CakeNutz Bake Price Calculator',
+          text: t.shareApp,
+          url: window.location.origin,
+        });
+      } catch (err) {
+        console.log("Share failed:", err);
+      }
+    } else {
+      navigator.clipboard.writeText(window.location.origin);
+      toast({
+        title: isSpanish ? "Enlace copiado" : "Link copied",
+        description: isSpanish ? "Enlace copiado al portapapeles" : "Link copied to clipboard",
+        duration: 2000,
+      });
+    }
   };
 
   return (
@@ -80,6 +105,17 @@ export default function SettingsPage() {
             <ChevronRight size={20} className="text-[#888888]" />
           </CardContent>
         </Card>
+
+        {/* Share Prompt */}
+        <div className="flex justify-center pt-6 pb-2">
+          <button 
+            onClick={handleShare}
+            className="flex items-center gap-2 text-sm text-[#888888] hover:text-[#1E73BE] transition-colors"
+          >
+            <Share size={14} />
+            <span>{t.shareApp}</span>
+          </button>
+        </div>
 
       </div>
     </div>
