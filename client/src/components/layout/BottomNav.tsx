@@ -15,22 +15,24 @@ export function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-[#F0E5D1] pb-safe z-50 shadow-[0_-8px_30px_-15px_rgba(0,0,0,0.1)]">
+    <div className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-[#E5D5B5]/60 pb-safe z-50 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.08)]">
       <div className="max-w-3xl mx-auto flex justify-around items-end px-2 sm:px-6 h-[68px]">
         {navItems.map((item) => {
           const isActive = location === item.href;
           return (
             <Link key={item.href} href={item.href} className="relative flex flex-col items-center justify-center w-full h-full min-w-[64px] pb-3 pt-2 group">
-              {/* Active Indicator Bar */}
+              {/* Active Indicator Highlight */}
               {isActive && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-[3px] bg-[#1E73BE] rounded-b-full"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-1 bg-[#1E73BE] rounded-b-full shadow-[0_2px_8px_rgba(30,115,190,0.5)]"></div>
               )}
               
-              <div className={`transition-all duration-300 transform ${isActive ? 'scale-110 text-[#1E73BE] mb-1' : 'text-[#888888] mb-1.5 group-hover:text-[#666666]'}`}>
-                <item.icon size={22} strokeWidth={isActive ? 2.5 : 2} />
+              {/* Icon Container */}
+              <div className={`relative flex items-center justify-center w-10 h-10 mb-0.5 rounded-full transition-all duration-300 ${isActive ? 'bg-[#1E73BE]/10 text-[#1E73BE]' : 'text-[#888888] group-hover:bg-[#1E73BE]/5 group-hover:text-[#666666]'}`}>
+                <item.icon size={isActive ? 24 : 22} strokeWidth={isActive ? 2.5 : 2} className="transition-all duration-300" />
               </div>
               
-              <span className={`text-[10px] font-semibold tracking-wide transition-all duration-300 ${isActive ? 'text-[#1E73BE]' : 'text-[#888888] group-hover:text-[#666666]'}`}>
+              {/* Label */}
+              <span className={`text-[10px] tracking-wide transition-all duration-300 ${isActive ? 'text-[#1E73BE] font-bold' : 'text-[#888888] font-medium group-hover:text-[#666666]'}`}>
                 {item.label}
               </span>
             </Link>
