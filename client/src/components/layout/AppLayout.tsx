@@ -36,7 +36,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
       )}
 
-      <div className={`flex-grow ${isLandingPage ? '' : 'pb-20'}`}>
+      <div className={`flex-grow ${isLandingPage ? '' : 'pb-24'}`}>
         {children}
       </div>
       {!isLandingPage && <BottomNav />}

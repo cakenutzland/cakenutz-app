@@ -15,16 +15,22 @@ export function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-[#F0E5D1] pb-safe z-50 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)]">
-      <div className="max-w-3xl mx-auto flex justify-around items-center px-2 sm:px-6 h-16">
+    <div className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-[#F0E5D1] pb-safe z-50 shadow-[0_-8px_30px_-15px_rgba(0,0,0,0.1)]">
+      <div className="max-w-3xl mx-auto flex justify-around items-end px-2 sm:px-6 h-[68px]">
         {navItems.map((item) => {
           const isActive = location === item.href;
           return (
-            <Link key={item.href} href={item.href} className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-200 ${isActive ? 'text-[#1E73BE]' : 'text-[#888888] hover:text-[#666666]'}`}>
-              <div className={`p-1.5 rounded-xl transition-all duration-200 ${isActive ? 'bg-[#1E73BE]/10' : 'bg-transparent'}`}>
-                <item.icon size={20} strokeWidth={isActive ? 2.5 : 2} />
+            <Link key={item.href} href={item.href} className="relative flex flex-col items-center justify-center w-full h-full min-w-[64px] pb-3 pt-2 group">
+              {/* Active Indicator Bar */}
+              {isActive && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-[3px] bg-[#1E73BE] rounded-b-full"></div>
+              )}
+              
+              <div className={`transition-all duration-300 transform ${isActive ? 'scale-110 text-[#1E73BE] mb-1' : 'text-[#888888] mb-1.5 group-hover:text-[#666666]'}`}>
+                <item.icon size={22} strokeWidth={isActive ? 2.5 : 2} />
               </div>
-              <span className={`text-[10px] font-semibold tracking-wide ${isActive ? 'text-[#1A1A1A]' : ''}`}>
+              
+              <span className={`text-[10px] font-semibold tracking-wide transition-all duration-300 ${isActive ? 'text-[#1E73BE]' : 'text-[#888888] group-hover:text-[#666666]'}`}>
                 {item.label}
               </span>
             </Link>
