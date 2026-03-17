@@ -39,13 +39,13 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#FFF6E6] flex flex-col items-center justify-center p-6 sm:p-10 relative overflow-hidden">
       {/* Language Selector Top Right */}
-      <div className="absolute top-6 right-6 z-50">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
         <button 
           onClick={() => setIsSpanish(!isSpanish)}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold text-[#888888] hover:text-[#1A1A1A] hover:bg-black/5 transition-colors active:scale-95"
+          className="flex items-center gap-2 px-4 py-2 min-h-[44px] rounded-full text-xs font-bold text-[#666666] hover:text-[#1A1A1A] hover:bg-black/5 transition-colors active:scale-95 border border-transparent hover:border-[#F0E5D1]"
         >
-          <Globe size={14} className={isSpanish ? "text-[#1E73BE]" : "text-[#FF3B30]"} />
-          <span className="tracking-widest">{isSpanish ? "ES" : "EN"}</span>
+          <Globe size={18} className={isSpanish ? "text-[#1E73BE]" : "text-[#FF3B30]"} />
+          <span className="tracking-wider">{isSpanish ? "ES" : "EN"}</span>
         </button>
       </div>
 
