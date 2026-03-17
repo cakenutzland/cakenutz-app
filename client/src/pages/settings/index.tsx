@@ -1,15 +1,18 @@
 import { useLocation } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
 import { 
   Settings as SettingsIcon, 
   Globe,
   Info,
   ChevronRight,
-  Share
+  Share,
+  Mail
 } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 import { useToast } from "@/hooks/use-toast";
+import logo from "../../assets/nutzlabs-logo.png";
 
 export default function SettingsPage() {
   const [, setLocation] = useLocation();
@@ -23,6 +26,10 @@ export default function SettingsPage() {
     aboutLabel: isSpanish ? "Acerca de" : "About",
     aboutDesc: isSpanish ? "Versión, privacidad y contacto" : "Version, privacy, and contact",
     shareApp: isSpanish ? "Comparte CakeNutz con otros pasteleros" : "Share CakeNutz with other bakers",
+    devTitle: "Developed by NutzLabs",
+    devName: "Leo R.C",
+    devEmail: "Cakenutzland@gmail.com",
+    contactBtn: isSpanish ? "Contactar al Desarrollador" : "Contact Developer",
   };
 
   const handleShare = async () => {
@@ -115,6 +122,25 @@ export default function SettingsPage() {
             <Share size={14} />
             <span>{t.shareApp}</span>
           </button>
+        </div>
+
+        {/* Developer Signature */}
+        <div className="mt-8 pt-8 border-t border-[#F0E5D1]/50 pb-20 flex flex-col items-center justify-center text-center animate-in fade-in duration-500">
+          <div className="w-16 h-16 rounded-2xl overflow-hidden mb-4 shadow-sm border border-[#F0E5D1] bg-[#1A1A1A]">
+            <img src={logo} alt="NutzLabs Logo" className="w-full h-full object-cover" />
+          </div>
+          <p className="text-sm font-semibold text-[#1A1A1A] tracking-wide">{t.devTitle}</p>
+          <p className="text-xs text-[#666666] mt-1">{t.devName}</p>
+          <p className="text-xs text-[#888888] mb-5">{t.devEmail}</p>
+          
+          <Button 
+            variant="outline" 
+            onClick={() => window.location.href = `mailto:${t.devEmail}`}
+            className="rounded-full border-[#D4C8BC] text-[#4A4A4A] hover:bg-[#FFF6E6] hover:text-[#1A1A1A] hover:border-[#E6DCCF] h-10 px-6 text-xs font-semibold shadow-sm hover:shadow transition-all"
+          >
+            <Mail size={14} className="mr-2" />
+            {t.contactBtn}
+          </Button>
         </div>
 
       </div>
