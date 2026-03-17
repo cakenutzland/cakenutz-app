@@ -26,6 +26,17 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { useAppContext } from "@/context/AppContext";
 import { BakerHat } from "@/components/ui/baker-hat";
 
@@ -67,7 +78,10 @@ export default function CalculatorPage() {
       : "Profit margin is the percentage of the final price that is your net profit. A 30-40% margin is healthy for artisan businesses.",
     
     calculateBtn: isSpanish ? "Calcular Precio Final" : "Calculate Final Price",
-    reset: isSpanish ? "Nueva Receta" : "New Recipe",
+    reset: isSpanish ? "Nuevo Cálculo" : "New Calculation",
+    resetConfirmTitle: isSpanish ? "¿Estás seguro?" : "Are you sure?",
+    resetConfirmText: isSpanish ? "Esto borrará todos los datos de la calculadora." : "This will clear all data.",
+    resetCancel: isSpanish ? "Cancelar" : "Cancel",
   };
 
   const updateRecipe = (field: string, value: any) => {
@@ -114,9 +128,7 @@ export default function CalculatorPage() {
               <p className="text-[10px] font-medium text-[#666666] uppercase tracking-[0.2em] mt-1">{t.subtitle}</p>
             </div>
           </div>
-          <Button variant="ghost" size="icon" onClick={resetCurrentRecipe} className="text-[#666666] hover:text-[#1A1A1A] hover:bg-[#FFF6E6] rounded-full h-10 w-10" title={t.reset}>
-            <RotateCcw size={18} />
-          </Button>
+          <div className="w-10"></div> {/* Spacer to replace old reset button */}
         </div>
       </div>
 
@@ -390,7 +402,7 @@ export default function CalculatorPage() {
         </Card>
 
         {/* Calculate Action */}
-        <div className="py-4">
+        <div className="py-4 space-y-4">
           <Button 
             onClick={() => setLocation('/results')}
             className="w-full h-16 rounded-[2rem] bg-[#FF3B30] hover:bg-[#E6352B] text-white font-medium text-xl shadow-[0_10px_30px_-10px_rgba(255,59,48,0.5)] transition-all active:scale-[0.98] border border-[#D32F2F]"
@@ -398,6 +410,37 @@ export default function CalculatorPage() {
             <PieChart className="mr-3 text-white" size={24} />
             {t.calculateBtn}
           </Button>
+
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button 
+                variant="outline"
+                className="w-full h-14 rounded-[2rem] border-2 border-[#F0E5D1] bg-[#FAFAFA] hover:bg-[#FFF6E6] text-[#666666] hover:text-[#1A1A1A] font-medium text-lg shadow-sm transition-all"
+              >
+                <RotateCcw className="mr-2" size={20} />
+                {t.reset}
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent className="rounded-3xl border-[#F0E5D1] bg-white sm:max-w-[400px]">
+              <AlertDialogHeader>
+                <AlertDialogTitle className="font-serif text-2xl text-[#1A1A1A]">{t.resetConfirmTitle}</AlertDialogTitle>
+                <AlertDialogDescription className="text-base text-[#666666] mt-2">
+                  {t.resetConfirmText}
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter className="mt-6 flex gap-3 sm:gap-0">
+                <AlertDialogCancel className="h-12 rounded-xl border-[#F0E5D1] hover:bg-[#F0E5D1]/50 text-[#666666] font-medium flex-1 sm:flex-none">
+                  {t.resetCancel}
+                </AlertDialogCancel>
+                <AlertDialogAction 
+                  onClick={resetCurrentRecipe} 
+                  className="h-12 rounded-xl bg-[#1A1A1A] hover:bg-[#333333] text-white font-medium flex-1 sm:flex-none"
+                >
+                  {t.reset}
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
 
       </div>
