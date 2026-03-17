@@ -60,7 +60,24 @@ const defaultRecipe: Recipe = {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
-  const [isSpanish, setIsSpanish] = useState(false);
+  const [isSpanish, setIsSpanish] = useState(() => {
+    try {
+      const savedLang = localStorage.getItem('cakenutz-lang');
+      return savedLang === 'es';
+    } catch (e) {
+      console.error("Failed to load language preference", e);
+      return false;
+    }
+  });
+
+  // Save language preference whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem('cakenutz-lang', isSpanish ? 'es' : 'en');
+    } catch (e) {
+      console.error("Failed to save language preference", e);
+    }
+  }, [isSpanish]);
   
   const defaultIngredients: Ingredient[] = [
     { id: '1', name: 'Flour (All Purpose)', cost: 0.15, unit: 'cup' },
