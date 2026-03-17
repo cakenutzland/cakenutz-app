@@ -152,18 +152,18 @@ export default function CalculatorPage() {
         </div>
 
         {/* Ingredients Section */}
-        <Card className="border-0 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)] bg-white rounded-3xl overflow-hidden relative">
+        <Card className="border-0 shadow-sm hover:shadow-md transition-shadow bg-white rounded-3xl overflow-hidden relative">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#1E73BE] to-[#E3CDAA]"></div>
-          <CardHeader className="bg-gradient-to-b from-[#FFF6E6] to-white border-b border-[#F0EBE1] pb-5 px-6 pt-6">
-            <CardTitle className="text-xl font-serif text-[#1A1A1A] flex items-center gap-3">
-              <div className="p-2 bg-[#FFF6E6] rounded-lg text-[#1E73BE]">
-                <ShoppingBag size={20} />
+          <CardHeader className="bg-gradient-to-b from-[#FFF6E6]/50 to-white border-b border-[#F0EBE1] pb-5 px-6 pt-6">
+            <CardTitle className="text-xl sm:text-2xl font-serif text-[#1A1A1A] flex items-center gap-3">
+              <div className="p-2 bg-[#FFF6E6] rounded-xl text-[#1E73BE]">
+                <ShoppingBag size={24} />
               </div>
               {t.ingredientsTitle}
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-6 space-y-4">
-            <div className="space-y-3">
+          <CardContent className="p-6 sm:p-8 space-y-6">
+            <div className="space-y-4">
               {currentRecipe.ingredients.map((item) => (
                 <div key={item.id} className="flex gap-3 items-center group animate-in fade-in slide-in-from-left-4 duration-300">
                   <Input 
@@ -214,16 +214,16 @@ export default function CalculatorPage() {
 
         {/* Labor & Profit Row */}
         <div className="grid md:grid-cols-2 gap-6">
-          <Card className="border-0 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)] bg-white rounded-3xl overflow-hidden">
-            <CardContent className="p-6 space-y-6">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="p-2 bg-[#FFF6E6] rounded-lg text-[#1A1A1A]">
-                  <Clock size={20} />
+          <Card className="border-0 shadow-sm hover:shadow-md transition-shadow bg-white rounded-3xl overflow-hidden">
+            <CardContent className="p-6 sm:p-8 space-y-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-[#FFF6E6] rounded-xl text-[#1A1A1A]">
+                  <Clock size={24} />
                 </div>
-                <h3 className="text-xl font-serif text-[#1A1A1A]">{t.laborTitle}</h3>
+                <h3 className="text-xl sm:text-2xl font-serif text-[#1A1A1A]">{t.laborTitle}</h3>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="laborHours" className="text-[#666666] text-[10px] font-bold uppercase tracking-wider">{t.laborHours}</Label>
                   <Input 
@@ -259,14 +259,14 @@ export default function CalculatorPage() {
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)] bg-white rounded-3xl overflow-hidden relative">
-            <CardContent className="p-6 relative z-10 h-full flex flex-col justify-center">
-              <div className="flex items-center justify-between mb-6">
+          <Card className="border-0 shadow-sm hover:shadow-md transition-shadow bg-white rounded-3xl overflow-hidden relative">
+            <CardContent className="p-6 sm:p-8 relative z-10 h-full flex flex-col justify-center">
+              <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-[#1E73BE]/10 rounded-lg text-[#1E73BE]">
-                    <PieChart size={20} />
+                  <div className="p-2 bg-[#1E73BE]/10 rounded-xl text-[#1E73BE]">
+                    <PieChart size={24} />
                   </div>
-                  <h3 className="text-xl font-serif text-[#1A1A1A]">{t.profitTitle}</h3>
+                  <h3 className="text-xl sm:text-2xl font-serif text-[#1A1A1A]">{t.profitTitle}</h3>
                 </div>
                 
                 <Popover>
@@ -306,17 +306,17 @@ export default function CalculatorPage() {
         </div>
 
         {/* Extra Costs Section */}
-        <Card className="border-0 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)] bg-white rounded-3xl overflow-hidden relative flex flex-col mb-8">
+        <Card className="border-0 shadow-sm hover:shadow-md transition-shadow bg-white rounded-3xl overflow-hidden relative flex flex-col mb-10">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#666666] to-[#C4B7AC]"></div>
-          <CardHeader className="bg-gradient-to-b from-[#FFF6E6] to-white border-b border-[#F0EBE1] pb-4 px-6 pt-5">
-            <CardTitle className="text-xl font-serif text-[#1A1A1A] flex items-center gap-3">
-              <div className="p-2 bg-[#FFF6E6] rounded-lg text-[#666666]">
-                <PackagePlus size={20} />
+          <CardHeader className="bg-gradient-to-b from-[#FFF6E6]/50 to-white border-b border-[#F0EBE1] pb-5 px-6 pt-6">
+            <CardTitle className="text-xl sm:text-2xl font-serif text-[#1A1A1A] flex items-center gap-3">
+              <div className="p-2 bg-[#FFF6E6] rounded-xl text-[#666666]">
+                <PackagePlus size={24} />
               </div>
               {t.extrasTitle}
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-6 flex-grow flex flex-col">
+          <CardContent className="p-6 sm:p-8 flex-grow flex flex-col space-y-6">
             
             <div className="mb-5">
               <p className="text-[10px] font-bold text-[#888888] uppercase tracking-wider mb-2.5">{t.presetsTitle}</p>

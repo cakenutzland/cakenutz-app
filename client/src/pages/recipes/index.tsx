@@ -60,7 +60,7 @@ export default function RecipesPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4">
+      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4 pb-20">
         
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#888888] h-5 w-5" />
@@ -83,31 +83,31 @@ export default function RecipesPage() {
             </div>
           ) : (
             filtered.sort((a,b) => b.createdAt - a.createdAt).map(recipe => (
-              <Card key={recipe.id} className="border-0 shadow-sm hover:shadow-md transition-shadow bg-white rounded-2xl overflow-hidden group">
-                <CardContent className="p-5">
-                  <div className="flex justify-between items-start mb-4">
+              <Card key={recipe.id} className="border-0 shadow-sm hover:shadow-md transition-all duration-200 bg-white rounded-3xl overflow-hidden group">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex justify-between items-start mb-6">
                     <div>
-                      <h3 className="font-serif font-bold text-lg text-[#1A1A1A]">{recipe.name}</h3>
-                      <div className="flex items-center gap-3 mt-1 text-xs text-[#666666]">
-                        <span className="flex items-center gap-1"><Clock size={12}/> {new Date(recipe.createdAt).toLocaleDateString()}</span>
+                      <h3 className="font-serif font-bold text-xl text-[#1A1A1A]">{recipe.name}</h3>
+                      <div className="flex items-center gap-3 mt-2 text-sm text-[#666666] font-medium">
+                        <span className="flex items-center gap-1.5"><Clock size={14}/> {new Date(recipe.createdAt).toLocaleDateString()}</span>
                         <span>{recipe.servings} {isSpanish ? 'unidades' : 'units'}</span>
                       </div>
                     </div>
-                    <div className="bg-[#FFF6E6] text-[#A6885D] px-2 py-1 rounded text-xs font-bold">
+                    <div className="bg-[#FFF6E6] text-[#1E73BE] px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">
                       {recipe.profitMargin}% {isSpanish ? 'Margen' : 'Margin'}
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-2 pt-3 border-t border-[#FFF6E6]">
-                    <Button onClick={() => handleOpen(recipe)} className="flex-1 bg-[#1A1A1A] hover:bg-[#E5E5E5] text-white rounded-xl h-10">
-                      <Play size={16} className="mr-2 text-[#1E73BE]" />
+                  <div className="flex items-center gap-3 pt-4 border-t border-[#F0E5D1]">
+                    <Button onClick={() => handleOpen(recipe)} className="flex-1 bg-[#1A1A1A] hover:bg-[#333333] text-white rounded-xl h-12 shadow-sm transition-all active:scale-[0.98]">
+                      <Play size={18} className="mr-2 text-[#FFD83D]" />
                       {t.open}
                     </Button>
-                    <Button variant="outline" size="icon" onClick={() => handleDuplicate(recipe)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-[#1A1A1A] h-10 w-10">
-                      <Copy size={16} />
+                    <Button variant="outline" size="icon" onClick={() => handleDuplicate(recipe)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-[#1A1A1A] hover:bg-[#F0E5D1]/50 h-12 w-12 transition-colors">
+                      <Copy size={18} />
                     </Button>
-                    <Button variant="outline" size="icon" onClick={() => handleDelete(recipe.id)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-red-500 hover:bg-red-50 hover:border-red-200 h-10 w-10">
-                      <Trash2 size={16} />
+                    <Button variant="outline" size="icon" onClick={() => handleDelete(recipe.id)} className="rounded-xl border-[#F0E5D1] text-[#666666] hover:text-red-500 hover:bg-red-50 hover:border-red-200 h-12 w-12 transition-colors">
+                      <Trash2 size={18} />
                     </Button>
                   </div>
                 </CardContent>

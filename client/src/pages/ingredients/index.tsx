@@ -74,11 +74,11 @@ export default function IngredientsPage() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4">
+      <div className="max-w-3xl mx-auto p-4 sm:p-6 space-y-6 mt-4 pb-20">
         
         {isAdding && (
-          <Card className="border-[#1E73BE] shadow-md bg-[#FFFFFF] rounded-3xl overflow-hidden animate-in slide-in-from-top-4 duration-300">
-            <CardContent className="p-5 space-y-4">
+          <Card className="border-[#1E73BE] shadow-lg bg-[#FFFFFF] rounded-3xl overflow-hidden animate-in slide-in-from-top-4 duration-300">
+            <CardContent className="p-6 sm:p-8 space-y-6">
               <div className="space-y-2">
                 <Label className="text-[#666666] text-xs font-bold uppercase tracking-wider">{t.name}</Label>
                 <Input value={newName} onChange={e => setNewName(e.target.value)} className="h-12 rounded-xl border-[#F0E5D1] focus-visible:border-[#1E73BE]" />
@@ -122,11 +122,11 @@ export default function IngredientsPage() {
             </div>
           ) : (
             filtered.map(ing => (
-              <Card key={ing.id} className="border-0 shadow-sm bg-white rounded-2xl overflow-hidden group">
-                <CardContent className="p-4 flex items-center justify-between">
+              <Card key={ing.id} className="border-0 shadow-sm hover:shadow-md transition-all duration-200 bg-white rounded-2xl overflow-hidden group">
+                <CardContent className="p-5 flex items-center justify-between">
                   <div>
-                    <h3 className="font-semibold text-[#1A1A1A]">{ing.name}</h3>
-                    <p className="text-sm text-[#666666] mt-0.5">${ing.cost.toFixed(2)} / {ing.unit}</p>
+                    <h3 className="font-serif text-lg font-bold text-[#1A1A1A]">{ing.name}</h3>
+                    <p className="text-sm font-medium text-[#666666] mt-1">${ing.cost.toFixed(2)} / {ing.unit}</p>
                   </div>
                   <Button variant="ghost" size="icon" onClick={() => removeIng(ing.id)} className="text-[#D4C8BC] hover:text-red-500 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity">
                     <Trash2 size={18} />
