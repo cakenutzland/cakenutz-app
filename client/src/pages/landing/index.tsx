@@ -1,12 +1,12 @@
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { BakerHat } from "@/components/ui/baker-hat";
-import { Calculator, DollarSign, Save, PieChart, ArrowRight } from "lucide-react";
+import { Calculator, DollarSign, Save, PieChart, ArrowRight, Globe } from "lucide-react";
 import { useAppContext } from "@/context/AppContext";
 
 export default function LandingPage() {
   const [, setLocation] = useLocation();
-  const { isSpanish } = useAppContext();
+  const { isSpanish, setIsSpanish } = useAppContext();
 
   const t = {
     title: isSpanish ? "Calcula el precio perfecto para tus productos horneados." : "Calculate the perfect price for your baked goods.",
@@ -38,6 +38,17 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-[#FFF6E6] flex flex-col items-center justify-center p-6 sm:p-10 relative overflow-hidden">
+      {/* Language Selector Top Right */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50">
+        <button 
+          onClick={() => setIsSpanish(!isSpanish)}
+          className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md border border-[#F0E5D1] px-3 py-1.5 rounded-full text-xs font-bold text-[#666666] hover:text-[#1A1A1A] hover:bg-white transition-all shadow-sm"
+        >
+          <Globe size={14} className={isSpanish ? "text-[#1E73BE]" : "text-[#FF3B30]"} />
+          <span>{isSpanish ? "ES" : "EN"}</span>
+        </button>
+      </div>
+
       {/* Decorative background elements */}
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-[#FFD83D]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-[#FF3B30]/10 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
