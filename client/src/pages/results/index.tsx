@@ -156,8 +156,8 @@ export default function ResultsPage() {
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A1A1A] mb-1">
             {currentRecipe.name || (isSpanish ? "Sin Nombre" : "Unnamed Recipe")}
           </h2>
-          {parseFloat(currentRecipe.servings) > 1 && (
-            <p className="text-sm font-medium text-[#666666]">{currentRecipe.servings} {t.servings.toLowerCase()}</p>
+          {parseFloat(currentRecipe.servings) > 0 && (
+            <p className="text-sm font-medium text-[#666666]">{currentRecipe.servings} {parseFloat(currentRecipe.servings) === 1 ? (isSpanish ? 'ración' : 'serving') : t.servings.toLowerCase()}</p>
           )}
         </div>
 
@@ -209,7 +209,7 @@ export default function ResultsPage() {
                       <span className="text-xs text-[#888888] uppercase tracking-wider mb-1">{t.perUnitResult}</span>
                       <span className="text-2xl font-bold text-white">${pricePerUnit.toFixed(2)}</span>
                       <span className="text-[10px] text-[#888888] mt-1 opacity-80">
-                        ({currentRecipe.servings} {t.servings.toLowerCase()})
+                        ({currentRecipe.servings} {parseFloat(currentRecipe.servings) === 1 ? (isSpanish ? 'ración' : 'serving') : t.servings.toLowerCase()})
                       </span>
                     </div>
                   )}

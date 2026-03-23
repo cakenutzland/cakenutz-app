@@ -90,7 +90,7 @@ export default function RecipesPage() {
                       <h3 className="font-serif font-bold text-xl text-[#1A1A1A]">{recipe.name}</h3>
                       <div className="flex items-center gap-3 mt-2 text-sm text-[#666666] font-medium">
                         <span className="flex items-center gap-1.5"><Clock size={14}/> {new Date(recipe.createdAt).toLocaleDateString()}</span>
-                        <span>{recipe.servings} {isSpanish ? 'unidades' : 'units'}</span>
+                        <span>{recipe.servings} {parseFloat(recipe.servings) === 1 ? (isSpanish ? 'unidad' : 'unit') : (isSpanish ? 'unidades' : 'units')}</span>
                       </div>
                     </div>
                     <div className="bg-[#FFF6E6] text-[#1E73BE] px-3 py-1.5 rounded-lg text-xs font-bold shadow-sm">
