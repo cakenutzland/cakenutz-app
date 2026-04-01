@@ -20,7 +20,7 @@ export default function AboutPage() {
     title: isSpanish ? "Acerca de" : "About",
     subtitle: isSpanish ? "Información de la App" : "App Info",
     back: isSpanish ? "Volver" : "Back",
-    appName: "CakeNutz Bake Price Calculator",
+    appName: "CakeNutz: Bakery Cost Calculator",
     appDesc: isSpanish 
       ? "Calculadora de precios profesional para panaderos y pasteleros."
       : "Professional pricing calculator for bakers and pastry chefs.",

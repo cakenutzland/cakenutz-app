@@ -118,7 +118,7 @@ export default function ResultsPage() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'CakeNutz Bake Price Calculator',
+          title: 'CakeNutz: Bakery Cost Calculator',
           text: t.shareApp,
           url: window.location.origin,
         });

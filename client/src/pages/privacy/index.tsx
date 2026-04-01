@@ -43,10 +43,10 @@ export default function PrivacyPage() {
               </div>
             </div>
 
-            <h2 className="text-2xl font-serif font-bold text-center">Privacy Policy for CakeNutz Bake Price Calculator</h2>
+            <h2 className="text-2xl font-serif font-bold text-center">Privacy Policy for CakeNutz: Bakery Cost Calculator</h2>
             <p className="text-center text-[#666666] italic">Effective date: {today}</p>
 
-            <p>CakeNutz Bake Price Calculator respects your privacy.</p>
+            <p>CakeNutz: Bakery Cost Calculator respects your privacy.</p>
 
             <div>
               <h3 className="font-bold text-base mt-6 mb-2">1. Information We Collect</h3>
