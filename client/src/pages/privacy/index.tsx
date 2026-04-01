@@ -14,7 +14,7 @@ export default function PrivacyPage() {
     back: isSpanish ? "Volver" : "Back",
   };
 
-  const today = "03/20/2026";
+  const today = "01/04/2026";
 
   return (
     <div>
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
             <div>
               <h3 className="font-bold text-base mt-6 mb-2">8. Contact</h3>
               <p>If you have any questions about this Privacy Policy, you may contact us at:</p>
-              <p className="mt-2 text-[#1E73BE] font-medium uppercase">CAKENUTZLAND@GMAIL.COM</p>
+              <p className="mt-2 text-[#1E73BE] font-medium uppercase">REALAPPSOLUTIONS@GMAIL.COM</p>
             </div>
 
           </CardContent>

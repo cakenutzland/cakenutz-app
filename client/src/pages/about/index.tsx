@@ -41,7 +41,7 @@ export default function AboutPage() {
     versionTitle: isSpanish ? "Versión" : "Version",
     version: "Version 1.0",
     contactTitle: isSpanish ? "Contacto" : "Contact",
-    contactText: "CAKENUTZLAND@GMAIL.COM",
+    contactText: "REALAPPSOLUTIONS@GMAIL.COM",
     privacyTitle: isSpanish ? "Privacidad" : "Privacy",
     privacyText: isSpanish 
       ? "Esta aplicación almacena recetas e ingredientes localmente en tu dispositivo. CakeNutz no recopila datos personales ni comparte tu información con terceros."

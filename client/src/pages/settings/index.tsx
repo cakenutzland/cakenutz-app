@@ -28,7 +28,7 @@ export default function SettingsPage() {
     shareApp: isSpanish ? "Comparte CakeNutz con otros pasteleros" : "Share CakeNutz with other bakers",
     devTitle: "Developed by NutzLabs",
     devName: "Leo R.C",
-    devEmail: "Cakenutzland@gmail.com",
+    devEmail: "realappsolutions@gmail.com",
     contactBtn: isSpanish ? "Contactar al Desarrollador" : "Contact Developer",
   };
 
