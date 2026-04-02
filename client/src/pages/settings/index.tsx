@@ -135,14 +135,13 @@ export default function SettingsPage() {
             {t.devEmail}
           </a>
           
-          <Button 
-            variant="outline" 
-            onClick={() => window.location.href = `mailto:${t.devEmail}`}
-            className="rounded-full border-2 border-[#E6DCCF] text-[#2C2C2C] hover:bg-[#FFF6E6] hover:text-[#1A1A1A] hover:border-[#E6DCCF] h-12 px-8 text-sm font-bold shadow-sm hover:shadow-md transition-all group"
+          <a 
+            href="mailto:realappsolutions@gmail.com"
+            className="inline-flex items-center justify-center rounded-full border-2 border-[#E6DCCF] text-[#2C2C2C] hover:bg-[#FFF6E6] hover:text-[#1A1A1A] hover:border-[#E6DCCF] h-12 px-8 text-sm font-bold shadow-sm hover:shadow-md transition-all group bg-white"
           >
             <Mail size={16} className="mr-2 text-[#888888] group-hover:text-[#1E73BE] transition-colors" />
             {t.contactBtn}
-          </Button>
+          </a>
         </div>
 
       </div>
