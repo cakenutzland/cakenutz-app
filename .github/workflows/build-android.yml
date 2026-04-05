@@ -48,5 +48,3 @@ jobs:
         with:
           name: cakenutz-release
           path: android/app/build/outputs/bundle/relea
-./deploy.sh "add GitHub Actions workflow for Android AAB build"
-
