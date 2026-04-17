@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cakenutz-cache-v2';
+const CACHE_NAME = 'cakenutz-cache-v3';
 
 // Core assets to cache immediately
 const ASSETS_TO_CACHE = [
