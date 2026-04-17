@@ -39,7 +39,7 @@ export default function AboutPage() {
       "Offline support"
     ],
     versionTitle: isSpanish ? "Versión" : "Version",
-    version: "Version 1.0",
+    version: "Version 1.1",
     contactTitle: isSpanish ? "Contacto" : "Contact",
     contactText: "REALAPPSOLUTIONS@GMAIL.COM",
     privacyTitle: isSpanish ? "Privacidad" : "Privacy",
